@@ -1,0 +1,31 @@
+{
+  "name": "agentic-ai-chatbot",
+  "version": "1.0.0",
+  "description": "Agentic AI Chatbot Monorepo",
+  "private": true,
+  "workspaces": [
+    "mern-chatbot-integration/backend",
+    "mern-chatbot-integration/frontend",
+    "chatbot-test-env"
+  ],
+  "scripts": {
+    "start:backend": "cd mern-chatbot-integration/backend && npm start",
+    "start:frontend": "cd mern-chatbot-integration/frontend && npm start",
+    "start:test": "cd chatbot-test-env && npm start",
+    "start:all": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "install:all": "npm install && npm run install:workspaces",
+    "install:workspaces": "npm install --workspaces",
+    "dev": "concurrently \"cd mern-chatbot-integration/backend && npm run dev\" \"cd mern-chatbot-integration/frontend && npm start\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "langchain": "^1.2.6",
+    "openai": "^6.15.0"
+  }
+}
